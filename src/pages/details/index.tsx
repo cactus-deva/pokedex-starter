@@ -1,4 +1,4 @@
-import { Routes, Route, useParams, Link } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { pokemonDetailsServices } from "../../services";
 import { IPokemonDetailsResponse } from "../../interface/pokemonDetails";
@@ -83,8 +83,8 @@ const DetailPage = () => {
                                     </div>
                                 </div>
                                 <div className="flex gap-2 justify-start sm:justify-end">
-                                    {pokemon.data.types.map((item) => {
-                                        return <span className={`badge-type-${item.type.name} px-[14px] py-[10px] py-8 rounded-[25px] capitalize`}>
+                                    {pokemon.data.types.map((item, index) => {
+                                        return <span key={index} className={`badge-type-${item.type.name} px-[14px] py-[10px] rounded-[25px] capitalize`}>
                                             {item.type.name}
                                         </span>
                                     })}

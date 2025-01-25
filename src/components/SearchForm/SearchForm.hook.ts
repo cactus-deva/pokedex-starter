@@ -6,7 +6,7 @@ import { generationList } from "../../utils/optionList"
 import { IPokemonDetailsResponse } from "../../interface/pokemonDetails"
 
 const useSearchForm = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, watch, formState: { errors } } = useForm();
 
     const { setFetchPokemonList, fetchPokemon, setPokemonList } = usePokemonListStore()
     const keyword = watch('keyword')
@@ -51,9 +51,11 @@ const useSearchForm = () => {
         type: string,
         sort: 'id' | 'name'
     ) => {
+
         const keywordFilter = fetchPokemon.data.filter((item) =>
             item.name.toLowerCase().includes(keyword?.toLowerCase())
         )
+        console.log(type);
 
         const typeFilter =
             type !== 'all types'
@@ -86,12 +88,14 @@ const useSearchForm = () => {
 
     useEffect(() => {
         const data = filterPokemon(keyword, type, sort)
+
         setPokemonList({
             data: data,
             loading: false,
             error: null
         })
     }, [keyword, type, sort])
+
 
     return {
         fieldKeyword: register("keyword"),

@@ -18,43 +18,43 @@ export const SearchForm = () => {
                     {generationList.map((item, index) => {
                         return <option className="capitalize" key={`generation-key-${index}`} value={index}>
                             {item.name}
-                            </option>
+                        </option>
                     })}
                 </select>
             </div>
             <div>
                 <label
-                    htmlFor="generation"
+                    htmlFor="type"
                     className="block mb-2 text-md font-medium text-white">
                     Type
                 </label>
                 <select
-                  {...fieldType}
+                    {...fieldType}
                     id="type"
                     className="capitalize bg-[#253641] border border-gray-300 text-white text-sm rounded-lg focus:ring-[#375EAA] focus:border-[#375EAA] block w-full p-2.5">
                     {typeList.map((item, index) => {
-                        return <option className="capitalize" key={`type-key-${index}`} value={index}>{item}</option>
+                        return <option className="capitalize" key={`type-key-${index}`} value={item}>{item}</option>
                     })}
                 </select>
             </div>
             <div>
                 <label
-                    htmlFor="generation"
+                    htmlFor="sort"
                     className="block mb-2 text-md font-medium text-white">
                     Sort By
                 </label>
                 <select
-                  {...fieldSort}
+                    {...fieldSort}
                     id="sort"
                     className=" capitalize bg-[#253641] border border-gray-300 text-white text-sm rounded-lg focus:ring-[#375EAA] focus:border-[#375EAA] block w-full p-2.5">
                     {sortList.map((item, index) => {
-                        return <option className="capitalize" key={`sort-key-${index}`} value={index}>{item}</option>
+                        return <option className="capitalize" key={`sort-key-${index}`} value={item}>{item}</option>
                     })}
                 </select>
             </div>
             <div>
                 <label
-                    htmlFor="generation"
+                    htmlFor="keyword"
                     className="block mb-2 text-md font-medium text-white">
                     Search
                 </label>
